@@ -1,0 +1,35 @@
+// Popup-video
+.popup-video{
+    position: fixed;
+    width: 50%;
+    height:70%;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 1s all;
+    visibility: hidden;
+    opacity: 0;
+    &__content{
+        height: 100%;
+        &-button{
+            text-align: right;
+            .fas{
+                cursor: pointer;
+                font-size: 2rem;
+                padding-bottom: 5px;
+                transform: rotate(45deg);
+            }
+        }
+        .ytb-video{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.showPopup{
+    transform: translate(-50%,-50%) scale(1);
+    visibility: visible;
+    opacity: 1;
+    z-index: 9999;
+}

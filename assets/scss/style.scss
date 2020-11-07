@@ -1,0 +1,30 @@
+@import "./abstracts/_function";
+@import "./abstracts/_mixin";
+@import "./abstracts/_variables";
+
+@import "./base/_base";
+@import "./base/_animation";
+@import "./base/_typography";
+
+@import "./components/_symbol";
+@import "./components/_slides";
+@import "./components/_button";
+@import "./components/_card";
+@import "./components/_loadding";
+@import "./components/_theme";
+@import "./components/_overlayScreen";
+@import "./components/_popup";
+
+@import "./layout/_nav";
+@import "./layout/_page-title";
+@import "./layout/_feature";
+@import "./layout/_blogs";
+@import "./layout/_footer";
+@import "./layout/_hero";
+
+@import "./page/_service";
+@import "./page/_home";
+
+@import "../vendor/slick/slick.scss";
+@import "../vendor/slick/slick-theme.scss";
+

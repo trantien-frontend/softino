@@ -1,0 +1,12 @@
+.overlay-screen{
+    position: fixed;
+    background-color: #000;
+    opacity: .5;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    display: none;
+}
+.showOvl{
+    display: block;
+}

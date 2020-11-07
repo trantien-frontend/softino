@@ -1,0 +1,233 @@
+// Price-card
+.card {
+  background-color: $color-bg;
+  position: relative;
+  padding: 4rem 0;
+  .row {
+    align-items: center;
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+  }
+  &__title {
+    h4 {
+      color: $color-default;
+      text-transform: capitalize;
+      span {
+        background: var(--color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    p {
+      line-height: 30px;
+      padding: 2rem 0;
+      width: 90%;
+      color: $color-dsc;
+    }
+    &-button {
+      padding: 15px 0;
+      @include flexbox(flex, flex-start, center);
+      flex-wrap: wrap;
+      .title-button__card {
+        text-transform: capitalize;
+        width: 120px;
+        height: 60px;
+        line-height: 60px;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 2rem;
+        &:nth-child(2) {
+          margin-left: 15px;
+        }
+      }
+      .title-button__card--blue {
+        background: var(--color);
+        color: #fff;
+      }
+      .title-button__card--white {
+        background-color: #fff;
+        color: $color-default;
+        transition: 0.5s all;
+        &:hover {
+          background: var(--color);
+          color: #fff;
+        }
+      }
+    }
+  }
+  &__blocks {
+    padding: 15px 0;
+    &-item {
+      position: relative;
+      margin-bottom: 15px;
+      text-align: center;
+      box-shadow: $box-shadow;
+      border-radius: 8px;
+      .blocks-item__price {
+        font-size: 6rem;
+        display: inline-block;
+        position: relative;
+        &::before {
+          content: "$";
+          position: absolute;
+          right: 100%;
+          font-size: 3rem;
+          top: 15px;
+        }
+      }
+      .blocks-item__list {
+        margin-bottom: 3rem;
+        li {
+          text-transform: capitalize;
+          font-size: 15px;
+          padding: 8px;
+          &:nth-child(2) {
+            text-transform: uppercase;
+            font-size: 3rem;
+          }
+        }
+      }
+    }
+    &-item--white {
+      background-color: #fff;
+      padding: 4rem 0;
+      .blocks-item__price {
+        color: $color-default;
+      }
+      .blocks-item__list {
+        li {
+          color: $color-dsc;
+          &:nth-child(2) {
+            background: var(--color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        }
+      }
+      &::before {
+        position: absolute;
+        content: "starter";
+        text-transform: uppercase;
+        font-size: 8rem;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.04);
+        top: 50%;
+        right: -130px;
+        transform: translatey(-50%) rotate(-90deg);
+        @include reponsive(laptop) {
+          font-size: 7rem;
+        }
+      }
+    }
+    &-item--blue {
+      background: var(--color);
+      padding: 8rem 0;
+      .blocks-item__price {
+        color: #fff;
+      }
+      .blocks-item__list {
+        li {
+          color: #fff;
+        }
+      }
+      &::before {
+        position: absolute;
+        content: "premium";
+        text-transform: uppercase;
+        font-size: 8rem;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.04);
+        top: 50%;
+        right: -110px;
+        transform: translate(8%, -50%) rotate(-90deg);
+        @include reponsive(laptop) {
+          font-size: 7rem;
+        }
+      }
+      .button--white {
+        color: $color-default;
+        span{
+          color: $color-default;
+        }
+        &:hover {
+          background: #fff;
+          span{
+            background: var(--color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color:transparent;
+          }
+        }
+      }
+    }
+  }
+}
+//Feature-card
+.feature__card{
+  position: relative;
+  padding: 5rem 3rem; 
+  box-shadow: $box-shadow;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  &:hover{
+    &::before{
+      transform: scale(1);
+    }
+    &::after{
+      visibility: visible;
+      opacity: .7;
+    }
+    h4 , p {
+      color: #fff;
+    }
+  }
+  &::after{
+    visibility: hidden;
+    opacity: 0;
+    content: '';
+    background-image: url(../images/Partern.png);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition: 1s;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    z-index: -1;
+    animation-name: zooms;
+    animation-duration: 10s;
+    animation-play-state: running;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  &::before{
+    content: '';
+    position: absolute;
+    background: var(--color);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    transition: 1s all;
+    transform: scale(0);
+  }
+  text-align: center;
+  &-img{
+    display: inline-block;
+  }
+  h4{
+    font-size: $font-mx;
+    text-transform: capitalize;
+    color: $color-default;
+  }
+  p{
+    color: $color-dsc;
+  }
+}
+// 

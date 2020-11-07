@@ -1,0 +1,131 @@
+.button {
+  border-radius: 2.3rem;
+  box-shadow: $box-shadow;
+  padding: 15px;
+  position: relative;
+  font-size: 15px;
+  letter-spacing: 0px;
+  color: $color-default;
+  background-color: #fff;
+  font-weight: 600;
+  transition: 0.5s;
+  overflow-y: hidden;
+  outline: none;
+  span {
+    visibility: hidden;
+    opacity: 0;
+    display: inline-block;
+    transform: translateY(-5px);
+  }
+  &::before {
+    content: attr(data-text);
+    visibility: visible;
+    position: absolute;
+    opacity: 1;
+    bottom: 50%;
+    transform: translateY(50%);
+    font-size: 16px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    transition: 0.5s;
+  }
+  &:hover {
+    &::before {
+      visibility: hidden;
+      opacity: 0;
+      bottom: 0;
+      transform: translateY(0);
+      z-index: -1;
+    }
+    span {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+      transition: 0.5s;
+      @for $i from 2 through 15 {
+        &:nth-child(#{$i}) {
+          transition-delay: 100ms * $i;
+        }
+      }
+    }
+  }
+}
+.button--white {
+  background-color: white;
+  color: $color-default;
+  &:hover {
+    color: white;
+    background: var(--color);
+  }
+  &::before {
+    background: var(--color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.button--blue {
+  background: var(--color);
+  color: #fff;
+  &:hover {
+    color: white;
+  }
+  &::before {
+    color: #fff;
+  }
+}
+// Button-video
+.button-video {
+  width: 60px;
+  height: 60px;
+  background: var(--color);
+  border-radius: 50%;
+  @include flexbox(flex, center, center);
+  &__icon {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    .fas {
+      color: #fff;
+    }
+  }
+}
+// Button Up web
+.button-up {
+  position: fixed;
+  display: none;
+  width: 50px;
+  height: 50px;
+  z-index: 99;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: $box-shadow;
+  text-align: center;
+  line-height: 50px;
+  background: #fff;
+  background: var(--color);
+  border-radius: 10px;
+  transition: 1s all;
+  &--active{
+    display: block;
+    cursor: pointer;
+  }
+  &:hover {
+    background: #fff;
+    span{
+      transition: 1s all;
+      background: var(--color);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  span {
+    background: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #fff;
+    font-size: 2rem;
+    transition: 1s all;
+  }
+}

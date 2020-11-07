@@ -1,0 +1,344 @@
+.nav {
+  height: 80px;
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  transition: 0.5s all;
+  .container {
+    height: 100%;
+  }
+  &__content {
+    width: 100%;
+    padding: 15px;
+    background-color: #fff;
+    height: 100%;
+    position: relative;
+    box-shadow: $box-shadow;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 5%;
+      width: 90%;
+      height: 10px;
+      background-color: white;
+      box-shadow: $box-shadow;
+      z-index: -1;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 110%;
+      left: 10%;
+      width: 80%;
+      height: 10px;
+      background-color: white;
+      box-shadow: $box-shadow;
+      z-index: -2;
+    }
+    @include flexbox(flex, space-between, center);
+    &-logo {
+      .content-logo__img {
+        width: 150px;
+      }
+    }
+    &-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: 1s;
+      transition-timing-function: ease-in-out;
+      position: absolute;
+      z-index: 99;
+      left: 10%;
+      top: 90%;
+      width: 80%;
+      background-color: white;
+      box-shadow: $box-shadow;
+      border-radius: 5px;
+      @include reponsive(laptop) {
+        all: unset !important;
+      }
+      .content-menu__list {
+        &-item {
+          position: relative;
+          &:hover {
+            @include reponsive(laptop) {
+              .sub-menu {
+                max-height: 300px;
+              }
+            }
+          }
+        }
+        &-link {
+          transition: 0.5s all;
+          color: $color-default;
+          font-size: 15px;
+          font-weight: 400;
+          display: block;
+          padding: 10px 2.5rem;
+          position: relative;
+          text-transform: capitalize;
+          &--minus {
+            @include reponsive (phone) {
+              content: "\f068" !important;
+            }
+            @include reponsive (tablet) {
+              content: "\f068" !important;
+            }
+          }
+          &:hover {
+            background: var(--color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-left: 3.5rem;
+            @include reponsive(laptop) {
+              padding: 10px 2.5rem;
+            }
+            .dots {
+              visibility: visible;
+              opacity: 1;
+              .dot {
+                @for $i from 1 through 3 {
+                  @if $i == 1 or $i == 3 {
+                    &:nth-child(#{$i}) {
+                      transform: translateX(0);
+                    }
+                  }
+                }
+              }
+            }
+            &::after {
+              background: var(--color); 
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              transition: .5s all;
+              @include reponsive(laptop) {
+                content: "\f068" !important;
+              }
+            }
+          }
+          &::after {
+            position: absolute;
+            content: "\f067";
+            right: 15px;
+            font-family: "Font Awesome 5 Free";
+            font-size: 10px;
+            font-weight: 900;
+            top: 50%;
+            transition: 0.5s all;
+            transform: translateY(-50%);
+            @include reponsive(laptop) {
+              right: 0;
+            }
+          }
+          .dots {
+            animation-name: Opacity;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: 50%;
+            transform: translateY(50%);
+            left: 2%;
+            @include reponsive(laptop) {
+              bottom: 0;
+              transform: translate(-50%, 0);
+              left: 50%;
+            }
+            .dot {
+              transition: 0.5s all;
+              display: inline-block;
+              width: 4px;
+              height: 4px;
+              border-radius: 50%;
+              &:nth-child(1) {
+                background: var(--color);
+                transform: translateX(8px);
+              }
+              &:nth-child(2) {
+                background-color: $color-default;
+                // position: absolute;
+              }
+              &:nth-child(3) {
+                background: var(--color);
+                transform: translateX(-8px);
+              }
+            }
+          }
+          &--blue {
+            background: var(--color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-left: 3.5rem;
+            &::after{
+              background: var(--color); 
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+            @include reponsive(laptop) {
+              padding: 10px 2.5rem;
+            }
+            .dots {
+              visibility: visible;
+              opacity: 1;
+              .dot {
+                &:nth-child(1) {
+                  transform: translateX(0);
+                }
+                &:nth-child(3) {
+                  transform: translateX(0);
+                }
+              }
+            }
+          }
+        }
+        @include reponsive(laptop) {
+          all: unset;
+          display: flex;
+          list-style: none;
+        }
+        .sub-menu {
+          position: relative;
+          background-color: #fff;
+          box-shadow: $box-shadow;
+          margin: 0 15px;
+          border-radius: 5px;
+          max-height: 0;
+          transition: 0.5s all;
+          overflow: hidden;
+          &--show {
+            max-height: 300px;
+          }
+          @include reponsive(laptop) {
+            all: unset;
+            border-radius: 5px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: max-content;
+            max-height: 0;
+            overflow: hidden;
+            transition: 1s all;
+            background-color: #fff;
+            box-shadow: $box-shadow;
+            .dots {
+              bottom: 50%;
+              transform: translateY(50%);
+              left: 2%;
+            }
+          }
+          &__list {
+            &-item {
+            }
+            &-link {
+              @extend .content-menu__list-link;
+              &::after {
+                content: "" !important;
+              }
+              &:hover {
+                padding-left: 3.5rem;
+                &::after{
+                  content: '' !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .showMenu {
+      max-height: 400px;
+      overflow-y: scroll;
+    }
+    &-icon {
+      @include reponsive(tablet) {
+        @include flexbox(flex, flex-end, center);
+      }
+      .content-icon__bars {
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        &-bar {
+          transition: 0.8s;
+          transition-timing-function: ease-in-out;
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          background: var(--color);
+          &--top {
+            left: 0;
+            top: 0;
+          }
+          &--center {
+            left: 0;
+            top: 50%;
+          }
+          &--bottom {
+            bottom: 0;
+            left: 0;
+          }
+        }
+        @include reponsive(laptop) {
+          display: none;
+        }
+      }
+      .barActive {
+        overflow: hidden;
+        .content-icon__bars-bar--top {
+          transform-origin: left top;
+          transform: rotate(45deg);
+          width: 132%;
+        }
+        .content-icon__bars-bar--center {
+          left: -100%;
+        }
+        .content-icon__bars-bar--bottom {
+          transform-origin: left bottom;
+          transform: rotate(-45deg);
+          width: 132%;
+        }
+      }
+      .content-icon__button {
+        a {
+          border-radius: 5px !important;
+          span {
+            color: $color-default;
+          }
+          &:hover {
+            span {
+              color: #fff;
+            }
+          }
+        }
+        @include reponsive(tablet) {
+          margin-left: 10px;
+        }
+        @include reponsive(phone) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.navfixed {
+  position: fixed;
+  width: 100%;
+  animation-name: nav;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  background-color: #fff;
+  box-shadow: $box-shadow;
+  .nav__content {
+    background-color: none;
+    box-shadow: none;
+    &::before {
+      opacity: 0;
+      visibility: hidden;
+    }
+    &::after {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}

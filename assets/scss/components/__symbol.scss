@@ -1,0 +1,158 @@
+//symbol circle ---> square
+.square {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  &::before {
+    position: absolute;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Font Awesome 5 Free";
+    z-index: 1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color);
+    border-radius: 50%;
+    animation-name: circleSquare;
+    animation-duration: 2s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+  }
+}
+//symbol circle bar
+.square-title {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -50%;
+  left: 0;
+  opacity: 0.2;
+  z-index: -1;
+  animation: rotation 12.8s steps(1) 0s infinite;
+  &__item{
+    background: var(--color);
+    z-index: 2;
+  }
+  .square-top{
+    width: 100%;
+    height: 7px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: left top;
+    transform: scale(0, 1); 
+    animation: bar-top 3.2s linear 0s infinite;
+  }
+  .square-right{
+    width: 7px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform-origin: left top;
+    transform: scale(1, 0);
+    animation: bar-right 3.2s linear 0s infinite;
+  }
+  .square-bottom{
+    width: 100%;
+    height: 7px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform-origin: right top;
+    transform: scale(0, 1);
+    animation: bar-bottom 3.2s linear 0s infinite;
+  }
+  .square-left{
+    width: 7px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform-origin: left bottom;
+    transform: scale(1, 0);
+    animation: bar-left 3.2s linear 0s infinite;
+  }
+}
+//symbol cirlce team
+  .circle-icon {
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+    line-height: 4rem;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+    transition: 0.5s;
+    &:hover {
+      transform: rotateY(360deg);
+    }
+    &--blue {
+      background-color: $icon-blue;
+    }
+    &--blue1 {
+      background-color: $icon-blue1;
+    }
+    &--blue2 {
+      background-color: $icon-blue2;
+    }
+    &--red {
+      background-color: $icon-red;
+    }
+  }
+// Circle animatin
+.circle{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  &::before{
+    content: "";
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0.8;
+    background-color: #28a745;
+    animation-name: circleBefore;
+    animation-duration: 1.5s;
+    animation-delay: 2s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    position: absolute;
+    z-index: -1;
+  }
+  &::after{
+    content: "";
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    opacity: 0.8;
+    background: #28a745;
+    animation-name: circleBefore;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    z-index: -2;
+  }
+}
+  

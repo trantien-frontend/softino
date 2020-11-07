@@ -1,0 +1,53 @@
+.hero {
+    position: relative;
+    background-color: rgb(251, 251, 251);
+    padding: 15rem 0;
+    overflow: hidden;
+    @include reponsive(laptop) {
+      height: 100vh;
+      .row {
+        align-items: center;
+      }
+    }
+    &__bg {
+      animation-name: zooms;
+      animation-duration: 4s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+    &__content {
+      @include flexbox(flex, center, center);
+    }
+    &__grid {
+      &-img {
+      }
+      &-text {
+        h4 {
+          padding: 5px 10px;
+          background-color: $hero-primary;
+          color: $color-default;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-family: $font-family-primary;
+          display: inline-block;
+          border-radius: 10px 0px 10px 0px;
+        }
+        h3 {
+          color: $color-default;
+          line-height: 4rem;
+          padding: 10px 0;
+          font-size: $font-lg;
+        }
+        p {
+          color: $color-dsc;
+          line-height: 30px;
+        }
+      }
+    }
+  }

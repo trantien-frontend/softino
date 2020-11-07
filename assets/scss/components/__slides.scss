@@ -1,0 +1,590 @@
+// Count-slide
+.count {
+  background-color: $color-bg;
+  padding: 4rem 0;
+  &__content {
+    &-text {
+      .square {
+        &::before {
+          content: "\f886";
+        }
+      }
+      h4 {
+        color: $color-default;
+        padding: 2rem 0;
+      }
+      p {
+        color: $color-dsc;
+        line-height: 30px;
+      }
+    }
+    &-slide {
+      .content-slide__block {
+        transform: translateY(50%);
+        &-item {
+          margin: 0 10px;
+          display: inline-block;
+          background-color: #fff;
+          padding: 4rem 8rem;
+          text-align: center;
+          box-shadow: $box-shadow;
+          border-radius: 10px;
+          img {
+            display: inline-block;
+          }
+          .block-item__text {
+            padding: 15px 0;
+            h4 {
+              background: var(--color);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+            p {
+              color: $color-dsc;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// Count-slide --end
+//Client-slide
+.client {
+  padding: 4rem 0;
+  &__title {
+    padding-bottom: 2rem;
+    text-align: center;
+    .square {
+      display: inline-block;
+      &::before {
+        content: "\f059";
+      }
+    }
+    h4 {
+      padding: 15px 0;
+      color: $color-default;
+    }
+  }
+  &__content {
+    position: relative;
+  }
+  &__blocks {
+    overflow: hidden;
+    display: flex;
+    margin: 0 auto;
+    &-item {
+      display: none;
+      border-radius: 10px;
+      text-align: center;
+      padding: 4rem 15px;
+      background-color: #fff;
+      position: relative;
+      margin: 0 auto;
+      .block-item__img {
+        animation: scale;
+        animation-duration: 4s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        width: 40%;
+        position: relative;
+        border-radius: 50%;
+        // overflow: hidden;
+        display: inline-block;
+        img {
+          border-radius: 50%;
+        }
+        &::before {
+          content: "";
+          top: 0;
+          left: 0;
+          border-radius: 50%;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border: 5px solid var(--color);
+          animation-name: scaleBorder;
+          animation-duration: 2.5s;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+          box-shadow: $box-shadow;
+          z-index: -1;
+        }
+        @include reponsive(tablet) {
+          width: 25%;
+        }
+      }
+      .block-item__text {
+        margin-top: 2rem;
+        box-shadow: $box-shadow;
+        padding: 2rem;
+        background-color: #fff;
+        position: relative;
+        z-index: 3;
+        border-radius: 10px;
+        p {
+          margin: 0 auto;
+          color: $color-dsc;
+          line-height: 27px;
+          padding-top: 2rem;
+          font-weight: 600;
+          padding-bottom: 2rem;
+        }
+        h5 {
+          font-size: 2rem;
+          padding: 2rem 0;
+          font-weight: 600;
+          text-transform: capitalize;
+          background: var(--color);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          position: relative;
+          display: inline-block;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 65%;
+            height: 2px;
+            background: var(--color);
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20%;
+            height: 2px;
+            background: var(--color);
+          }
+        }
+        h6 {
+          color: $color-default;
+          font-size: 14px;
+          font-weight: 600;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          width: 90%;
+          height: 15px;
+          left: 5%;
+          box-shadow: $box-shadow;
+          top: 100%;
+          background-color: #fff;
+          z-index: 2;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 80%;
+          height: 15px;
+          left: 10%;
+          background-color: #fff;
+          box-shadow: $box-shadow;
+          top: calc(100% + 15px);
+          z-index: 1;
+        }
+      }
+      &--active {
+        display: block;
+      }
+    }
+    &-dots {
+      padding: 3rem 0;
+      @include flexbox(flex, center, center);
+      flex-wrap: wrap;
+      .dot {
+        width: 30%;
+        padding: 10px;
+        &-img {
+          position: relative;
+          z-index: 5;
+          border-radius: 50%;
+          img {
+            border-radius: 50%;
+          }
+        }
+        @include reponsive(tablet) {
+          width: 14%;
+          position: absolute;
+          &:nth-child(1) {
+            top: 15%;
+            left: 12%;
+          }
+          &:nth-child(2) {
+            top: 15%;
+            right: 12%;
+          }
+          &:nth-child(3) {
+            bottom: 5%;
+            left: 2%;
+          }
+          &:nth-child(4) {
+            bottom: 5%;
+            right: 2%;
+          }
+        }
+        @include reponsive(laptop) {
+          width: 12%;
+          position: absolute;
+          &:nth-child(1) {
+            top: 15%;
+            left: 12%;
+          }
+          &:nth-child(2) {
+            top: 15%;
+            right: 12%;
+          }
+          &:nth-child(3) {
+            bottom: 5%;
+            left: 2%;
+          }
+          &:nth-child(4) {
+            bottom: 5%;
+            right: 2%;
+          }
+        }
+      }
+      .dot--active {
+        position: relative;
+        @include reponsive(tablet) {
+          position: absolute;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          width: 100%;
+          height: 100%;
+          background: var(--color);
+          z-index: 3;
+          border-radius: 50%;
+          animation-name: dots;
+          animation-duration: 2s;
+          animation-iteration-count: infinite;
+          animation-timing-function: ease;
+          box-shadow: $box-shadow;
+        }
+      }
+    }
+    .hide {
+      animation-name: leftClient;
+      animation-duration: 2s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+    }
+    .show {
+      animation-name: rightClient;
+      animation-duration: 1.5s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+//Clinet-slide --end
+// Clinet-home-slide
+.client-home {
+  padding: 4rem 0;
+  position: relative;
+  &__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../images/Hero-bg.png);
+  }
+  &__title {
+    margin: 0 auto;
+    text-align: center;
+    font-family: $font-family-primary;
+    @include reponsive(laptop) {
+      max-width: 65%;
+    }
+  }
+  &__content {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    &-item {
+      display: none;
+      .row{
+        align-items: center;
+      }
+      .content-item__img {
+        max-width: 50%;
+        border-radius: 30% 20% 100% 0%;
+        overflow: hidden;
+        @include reponsive(laptop){
+          max-width: 100%;
+        }
+        @include reponsive(tablet){
+          max-width: 100%;
+        }
+      }
+      .content-item__text {
+        text-align: left;
+        position: relative;
+        max-width: 93%;
+        padding-top: 5px;
+        p,
+        h5 {
+          color: $color-default;
+          line-height: 25px;
+          font-weight: 500;
+        }
+        h4 {
+          position: relative;
+          font-size: 2rem;
+          font-family: $font-family-primary;
+          text-transform: capitalize;
+          padding-top: 3rem;
+          padding-bottom: 15px;
+          display: inline-block;
+          font-weight: 700;
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 60%;
+            top: 1.5rem;
+            height: 3px;
+            background: var(--color);
+            opacity: 0.7;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 25%;
+            top: 1.5rem;
+            height: 3px;
+            background: var(--color);
+          }
+        }
+        span {
+          position: absolute;
+          font-size: 8rem;
+          opacity: 0.5;
+          left: 20%;
+          top: 5%;
+        }
+      }
+    }
+    .client--active {
+      display: block;
+    }
+  }
+  &__dots {
+    padding-top: 15px;
+    height: 100%;
+    &-list {
+      @include flexbox(flex, flex-start, center);
+      height: 100%;
+      @include reponsive(laptop) {
+        flex-direction: column;
+        justify-content: center !important;
+      }
+      @include reponsive(tablet) {
+        flex-direction: column;
+        justify-content: center !important;
+      }
+      .dots-list__item {
+        max-width: 20%;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 15px;
+        @include reponsive(tablet){
+          max-width: 100%;
+          &:nth-child(2){
+            margin: 15px 0px 15px 15px;
+          }
+        }
+        @include reponsive(laptop){
+          max-width: 50% !important;
+          &:nth-child(2){
+            margin: 15px 0px 15px 15px;
+          }
+        }
+        
+      }
+    }
+  }
+  .hide {
+    animation-name: leftClient;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+  .show {
+    animation-name: rightClient;
+    animation-duration: 1.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+  }
+}
+// Clinet-home-slide end
+// Team-slide
+.team {
+  padding: 6rem 0;
+  position: relative;
+  .row {
+    @include reponsive(laptop) {
+      align-items: center;
+    }
+  }
+  &::after {
+    content: "";
+    width: 75%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background-color: $color-bg;
+    z-index: -1;
+    border-radius: 20rem 0px 0px 0px;
+  }
+  &__title {
+    padding-bottom: 3rem;
+    .square {
+      &::before {
+        content: "\f0c0";
+      }
+    }
+    h4 {
+      color: $color-default;
+      padding-top: 2rem;
+    }
+    p {
+      width: 95%;
+      color: $color-dsc;
+      line-height: 25px;
+      padding-top: 2rem;
+      padding-bottom: 3rem;
+    }
+  }
+  &__content {
+    &-item {
+      margin: 0 5px;
+      outline: none;
+      img {
+        border-radius: 5px;
+      }
+      .content-item__text {
+        background-color: #fff;
+        box-shadow: $box-shadow;
+        border-radius: 10px;
+        width: 90%;
+        transform: translate(5%, -30%);
+        padding: 4rem;
+        text-align: center;
+        &-position {
+          text-transform: capitalize;
+          font-size: 15px;
+          color: $color-dsc;
+          font-family: "Heebo", sans-serif;
+        }
+        &-name {
+          font-family: "Heebo", sans-serif;
+          font-size: 1.8rem;
+          background: var(--color);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-transform: capitalize;
+          font-weight: 400;
+          padding: 15px 0;
+        }
+        @include reponsive(tablet) {
+          padding: 2.5rem;
+        }
+      }
+    }
+  }
+}
+// Team-slide --end
+.team-home {
+  padding: 3rem 0;
+  &__title {
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 3rem;
+    @include reponsive(laptop) {
+      max-width: 60%;
+    }
+    h3 {
+      font-family: $font-family-primary;
+      background-image: url(../);
+    }
+  }
+  &__card {
+    .card-item {
+      border-radius: 8px;
+      margin: 0 15px;
+      outline: none;
+      text-align: center;
+      padding: 3rem;
+      background-color: #fff;
+      box-shadow: $box-shadow;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--color);
+        transition: 0.5s all;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0%;
+        height: 3px;
+        background: var(--color);
+        transition: 0.5s all;
+      }
+      &__img {
+        height: 20rem;
+        width: 20rem;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+        position: relative;
+        img {
+          border-radius: 50%;
+        }
+      }
+      &__text {
+        padding: 15px 0;
+        h5 {
+          color: $color-default;
+        }
+        h4 {
+          font-family: $font-family-primary;
+          font-size: 2rem;
+          font-weight: 500;
+        }
+      }
+      &__icon {
+      }
+      &:hover {
+        &::before {
+          width: 30%;
+        }
+        &::after {
+          width: 30%;
+        }
+      }
+    }
+  }
+}
+// team-home

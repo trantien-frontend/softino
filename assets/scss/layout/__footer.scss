@@ -1,0 +1,136 @@
+.footer {
+  position: relative;
+  .subscribe-box {
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    box-shadow: $box-shadow;
+    border-radius: 10px;
+    .row {
+      align-items: center;
+    }
+    &__title {
+      padding-bottom: 4rem;
+      h4 {
+        color: $color-default;
+        font-size: 2rem;
+        padding-bottom: 15px;
+      }
+      P {
+        color: $color-dsc;
+      }
+      @include reponsive (laptop){
+        padding-bottom: 0;
+      }
+    }
+    &__form {
+      position: relative;
+      padding: 15px;
+      background-color: #ffffff;
+      box-shadow: $box-shadow;
+      border-radius: 10px;
+      input {
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: #fff;
+      }
+      button {
+        position: absolute;
+        font-family: "Nunito", sans-serif;
+        width: 30%;
+        right: 2px;
+        font-size: 15px;
+        font-weight: 500;
+        top: 2px;
+        bottom: 2px;
+        outline: none;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        background: var(--color);
+      }
+    }
+  }
+  &__top {
+    padding: 2rem 0;
+    &-item {
+      margin-bottom: 15px;
+      img {
+        width: 250px;
+      }
+      p {
+        color: $color-dsc;
+        line-height: 25px;
+        padding-top: 15px;
+      }
+    }
+    &-list {
+      li {
+        text-transform: capitalize;
+        font-size: 15px;
+        padding-bottom: 15px;
+        color: $color-default;
+        a {
+          background: var(--color);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  &__bottom {
+    .row {
+      align-items: center;
+    }
+    padding: 15px 0;
+    &-text {
+      font-size: 15px;
+      color: $color-dsc;
+      font-weight: 400;
+      u {
+        text-decoration-line: underline;
+        text-decoration-style: wavy;
+        text-decoration-color: var(--color);
+        a {
+          background: var(--color);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-weight: 600;
+        }
+      }
+    }
+    &-social {
+      padding: 15px 0;
+      cursor: pointer;
+      @include reponsive(laptop) {
+        text-align: right;
+      }
+      li {
+        display: inline-block;
+        font-size: 15px;
+        transition: 0.5s all;
+        padding-right: 10px;
+        color: $color-default;
+        &:hover {
+          background: var(--color);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    background-image: url(../images/footer-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

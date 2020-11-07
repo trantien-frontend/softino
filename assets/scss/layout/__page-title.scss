@@ -1,0 +1,88 @@
+.page-title {
+  background-color: #fbf3ed;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  &__img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    &:nth-child(1) {
+      background-image: url(../images/page.png);
+      animation-name: top-to-bottom;
+      animation-duration: 10s;
+      animation-play-state: running;
+      animation-timing-function: ease-in;
+      animation-iteration-count: infinite;
+      transform: translateY(-100%);
+    }
+    &:nth-child(2) {
+      animation-name: none;
+      bottom: 0;
+      top: unset;
+      @include reponsive(tablet) {
+        // top: 67%;
+      }
+    }
+  }
+
+  &__content {
+    text-align: center;
+    padding: 15rem 0;
+    @include reponsive(laptop) {
+      padding: 25rem 0;
+      @include flexbox(flex, space-between, center);
+    }
+    &-text {
+      h3 {
+        font-size: 3rem;
+        color: $color-default;
+        @include reponsive(laptop) {
+          font-size: 5rem;
+        }
+        span {
+          background: var(--color);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+      p {
+        color: $color-default;
+        padding: 15px 0;
+        opacity: 0.8;
+      }
+    }
+    &-list {
+      @include flexbox(flex, center, center);
+      li {
+        text-transform: capitalize;
+        font-weight: 600;
+        padding: 0 10px;
+        color: $color-default;
+        transition: 0.5s all;
+        position: relative;
+        &:hover {
+          background: var(--color);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        &::after {
+          content: "/";
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+      li:last-child {
+        background: var(--color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        &::after {
+          content: "";
+        }
+      }
+    }
+  }
+}
